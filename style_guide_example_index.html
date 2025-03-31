@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketGig Style Guide</title>
+    <style>
+        :root {
+            --red: #DB2F2F;
+            --blue-medium: #007EA7;
+            --blue-light: #00A8E8;
+            --blue-dark: #003459;
+            --blue-darkest: #00171F;
+            --white: #FFFFFF;
+            --grey-light: #E0ECF3;
+            --blue-grey: #A3C9DD;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--grey-light);
+            color: var(--blue-darkest);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--blue-dark);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            background-color: var(--red);
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--blue-light);
+            border-bottom-color: var(--blue-light);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            min-height: 80vh;
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h1 {
+            color: var(--blue-dark);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        h2 {
+            color: var(--blue-dark);
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            color: var(--blue-medium);
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .color-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-block {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .color-info {
+            padding: 1rem;
+            background-color: white;
+        }
+
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-hex {
+            font-family: monospace;
+            color: var(--blue-dark);
+        }
+
+        .typography-example {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid var(--blue-grey);
+            border-radius: 8px;
+        }
+
+        .typography-specs {
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--blue-medium);
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .logo-display {
+            background-color: var(--grey-light);
+            padding: 3rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-large {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon-large {
+            background-color: var(--red);
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .logo-variations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .logo-variation {
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-variation:nth-child(1) {
+            background-color: var(--blue-dark);
+        }
+
+        .logo-variation:nth-child(2) {
+            background-color: var(--white);
+        }
+
+        .logo-variation:nth-child(3) {
+            background-color: var(--grey-light);
+        }
+
+        .logo-dark {
+            color: var(--white);
+        }
+
+        .logo-light {
+            color: var(--blue-dark);
+        }
+
+        .logo-title {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .ref-item {
+            border: 1px solid var(--blue-grey);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .ref-img {
+            height: 160px;
+            background-color: var(--grey-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-medium);
+            font-size: 1.2rem;
+        }
+
+        .ref-info {
+            padding: 1rem;
+        }
+
+        .ref-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .ref-desc {
+            font-size: 0.9rem;
+            color: var(--blue-medium);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .page {
+                padding: 1.5rem;
+            }
+            
+            .color-grid, .ref-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">P</div>
+                PocketGig
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="logo">Logo</a>
+                <a href="#" class="nav-link" data-page="typography">Typography</a>
+                <a href="#" class="nav-link" data-page="colors">Colors</a>
+                <a href="#" class="nav-link" data-page="references">References</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <h1>PocketGig Style Guide</h1>
+            <p>Welcome to the official style guide for PocketGig, your mobile app for finding and managing gigs on the go. This guide provides comprehensive information about our brand identity, including logo usage, typography, color palette, and design references.</p>
+            
+            <div class="section">
+                <h2>Purpose of this Style Guide</h2>
+                <p>This document serves as a reference for designers, developers, and any stakeholders involved in creating or modifying PocketGig assets. Consistent application of these guidelines ensures a cohesive brand experience across all platforms and touchpoints.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Quick Access</h2>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.5rem;">→ <a href="#" style="color: var(--blue-medium); text-decoration: none; font-weight: 500;" onclick="showPage('logo'); return false;">Logo guidelines and usage</a></li>
+                    <li style="margin-bottom: 0.5rem;">→ <a href="#" style="color: var(--blue-medium); text-decoration: none; font-weight: 500;" onclick="showPage('typography'); return false;">Typography system</a></li>
+                    <li style="margin-bottom: 0.5rem;">→ <a href="#" style="color: var(--blue-medium); text-decoration: none; font-weight: 500;" onclick="showPage('colors'); return false;">Color palette</a></li>
+                    <li style="margin-bottom: 0.5rem;">→ <a href="#" style="color: var(--blue-medium); text-decoration: none; font-weight: 500;" onclick="showPage('references'); return false;">Visual reference and examples</a></li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>About PocketGig</h2>
+                <p>PocketGig is a mobile application designed to connect gig workers with opportunities in their area. Our brand values include reliability, accessibility, and empowerment. These values inform every aspect of our design language and user experience.</p>
+            </div>
+        </div>
+
+        <!-- Logo Page -->
+        <div id="logo" class="page">
+            <h1>Logo</h1>
+            <p>The PocketGig logo represents our brand identity. It should be used consistently across all platforms and materials to ensure brand recognition.</p>
+            
+            <div class="logo-section">
+                <div class="logo-display">
+                    <div class="logo-large">
+                        <div class="logo-icon-large">P</div>
+                        PocketGig
+                    </div>
+                </div>
+                
+                <h2>Logo Variations</h2>
+                <div class="logo-variations">
+                    <div class="logo-variation">
+                        <div class="logo-dark" style="display: flex; align-items: center;">
+                            <div style="background-color: var(--red); width: 30px; height: 30px; border-radius: 6px; margin-right: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">P</div>
+                            <span style="font-weight: 700; font-size: 1.2rem;">PocketGig</span>
+                        </div>
+                        <div class="logo-title" style="color: var(--white);">Dark Background</div>
+                    </div>
+                    
+                    <div class="logo-variation">
+                        <div class="logo-light" style="display: flex; align-items: center;">
+                            <div style="background-color: var(--red); width: 30px; height: 30px; border-radius: 6px; margin-right: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">P</div>
+                            <span style="font-weight: 700; font-size: 1.2rem;">PocketGig</span>
+                        </div>
+                        <div class="logo-title">Light Background</div>
+                    </div>
+                    
+                    <div class="logo-variation">
+                        <div style="background-color: var(--red); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.5rem;">P</div>
+                        <div class="logo-title">App Icon</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Logo Usage Guidelines</h2>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Maintain clear space around the logo equal to the height of the "P" icon</li>
+                    <li>Never stretch, distort, or alter the proportions of the logo</li>
+                    <li>The minimum display size for the full logo is 100px wide</li>
+                    <li>For very small spaces, use only the app icon version</li>
+                    <li>Always use the approved colors as specified in this guide</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Typography Page -->
+        <div id="typography" class="page">
+            <h1>Typography</h1>
+            <p>Typography plays a crucial role in our brand identity. Our typeface selection and usage guidelines ensure consistency and readability across all platforms.</p>
+            
+            <div class="section">
+                <h2>Primary Typeface: Inter</h2>
+                <p>Inter is our primary typeface for all digital applications. It offers excellent legibility and a modern aesthetic that aligns with our brand values.</p>
+                
+                <div class="typography-example">
+                    <h1 style="font-family: 'Inter', sans-serif; margin-bottom: 0.5rem;">Heading 1</h1>
+                    <div class="typography-specs">Font: Inter Bold | Size: 24px | Line Height: 32px</div>
+                </div>
+                
+                <div class="typography-example">
+                    <h2 style="font-family: 'Inter', sans-serif; margin-bottom: 0.5rem;">Heading 2</h2>
+                    <div class="typography-specs">Font: Inter Semibold | Size: 20px | Line Height: 28px</div>
+                </div>
+                
+                <div class="typography-example">
+                    <h3 style="font-family: 'Inter', sans-serif; margin-bottom: 0.5rem;">Heading 3</h3>
+                    <div class="typography-specs">Font: Inter Medium | Size: 18px | Line Height: 26px</div>
+                </div>
+                
+                <div class="typography-example">
+                    <p style="font-family: 'Inter', sans-serif; margin-bottom: 0.5rem;">Body text is set in Inter Regular. It should be legible and have appropriate contrast against its background. The standard body text size is 16px with a line height of 24px.</p>
+                    <div class="typography-specs">Font: Inter Regular | Size: 16px | Line Height: 24px</div>
+                </div>
+                
+                <div class="typography-example">
+                    <p style="font-family: 'Inter', sans-serif; font-size: 14px; margin-bottom: 0.5rem;">Small text is used for captions, footnotes, and secondary information. It should still maintain readability.</p>
+                    <div class="typography-specs">Font: Inter Regular | Size: 14px | Line Height: 20px</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Typography Guidelines</h2>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Maintain adequate contrast between text and background</li>
+                    <li>Use the specified font weights consistently</li>
+                    <li>Avoid using more than three different font sizes on a single screen</li>
+                    <li>Line length should not exceed 70-80 characters for optimal readability</li>
+                    <li>For buttons and call-to-action elements, use Inter Medium or Semibold</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Colors Page -->
+        <div id="colors" class="page">
+            <h1>Color Palette</h1>
+            <p>Our color palette reflects the PocketGig brand personality: professional, accessible, and energetic. The following colors should be used consistently across all platforms and materials.</p>
+            
+            <div class="section">
+                <h2>Primary Colors</h2>
+                <div class="color-grid">
+                    <div class="color-item">
+                        <div class="color-block" style="background-color: #DB2F2F;">#DB2F2F</div>
+                        <div class="color-info">
+                            <div class="color-name">Accent Red</div>
+                            <div class="color-hex">#DB2F2F</div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-item">
+                        <div class="color-block" style="background-color: #007EA7;">#007EA7</div>
+                        <div class="color-info">
+                            <div class="color-name">Medium Blue</div>
+                            <div class="color-hex">#007EA7</div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-item">
+                        <div class="color-block" style="background-color: #00A8E8;">#00A8E8</div>
+                        <div class="color-info">
+                            <div class="color-name">Light Blue</div>
+                            <div class="color-hex">#00A8E8</div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-item">
+                        <div class="color-block" style="background-color: #003459;">#003459</div>
+                        <div class="color-info">
+                            <div class="color-name">Dark Blue</div>
+                            <div class="color-hex">#003459</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Secondary Colors</h2>
+                <div class="color-grid">
+                    <div class="color-item">
+                        <div class="color-block" style="background-color: #00171F; color: white;">#00171F</div>
+                        <div class="color-info">
+                            <div class="color-name">Darkest Blue</div>
+                            <div class="color-hex">#00171F</div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-item">
+                        <div class="color-block" style="background-color: #FFFFFF; color: #003459; border: 1px solid #E0ECF3;">#FFFFFF</div>
+                        <div class="color-info">
+                            <div class="color-name">White</div>
+                            <div class="color-hex">#FFFFFF</div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-item">
+                        <div class="color-block" style="background-color: #E0ECF3; color: #003459;">#E0ECF3</div>
+                        <div class="color-info">
+                            <div class="color-name">Light Grey</div>
+                            <div class="color-hex">#E0ECF3</div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-item">
+                        <div class="color-block" style="background-color: #A3C9DD; color: #003459;">#A3C9DD</div>
+                        <div class="color-info">
+                            <div class="color-name">Blue Grey</div>
+                            <div class="color-hex">#A3C9DD</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Color Usage Guidelines</h2>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Accent Red (#DB2F2F):</strong> Used for primary buttons, notifications, and important callouts</li>
+                    <li><strong>Medium Blue (#007EA7):</strong> Used for secondary buttons, links, and important UI elements</li>
+                    <li><strong>Light Blue (#00A8E8):</strong> Used for hover states, highlights, and accent elements</li>
+                    <li><strong>Dark Blue (#003459):</strong> Used for headers, primary text, and important UI elements</li>
+                    <li><strong>Darkest Blue (#00171F):</strong> Used for footers, backgrounds, and depth indicators</li>
+                    <li><strong>White (#FFFFFF):</strong> Used for backgrounds, card elements, and text on dark colors</li>
+                    <li><strong>Light Grey (#E0ECF3):</strong> Used for backgrounds, dividers, and disabled states</li>
+                    <li><strong>Blue Grey (#A3C9DD):</strong> Used for borders, secondary text, and subtle UI elements</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Accessibility</h2>
+                <p>All color combinations used for text and interactive elements must meet WCAG 2.1 AA standards for contrast. Test color combinations to ensure they provide sufficient contrast for all users.</p>
+                <p>Primary text on light backgrounds should use Dark Blue (#003459) or Darkest Blue (#00171F).</p>
+                <p>Text on dark backgrounds should use White (#FFFFFF) or Light Grey (#E0ECF3).</p>
+            </div>
+        </div>
+
+        <!-- References Page -->
+        <div id="references" class="page">
+            <h1>References</h1>
+            <p>This section provides visual references and examples of the PocketGig app's design elements and components for consistent implementation across platforms.</p>
+            
+            <div class="section">
+                <h2>UI Components</h2>
+                <div class="ref-grid">
+                    <div class="ref-item">
+                        <div class="ref-img">Buttons Example</div>
+                        <div class="ref-info">
+                            <div class="ref-title">Buttons</div>
+                            <div class="ref-desc">Primary, secondary, and tertiary button styles</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item">
+                        <div class="ref-img">Form Elements</div>
+                        <div class="ref-info">
+                            <div class="ref-title">Form Inputs</div>
+                            <div class="ref-desc">Text fields, dropdowns, checkboxes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item">
+                        <div class="ref-img">Cards & Containers</div>
+                        <div class="ref-info">
+                            <div class="ref-title">Card Layouts</div>
+                            <div class="ref-desc">Job listings, profile cards, info containers</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item">
+                        <div class="ref-img">Navigation</div>
+                        <div class="ref-info">
+                            <div class="ref-title">Navigation Elements</div>
+                            <div class="ref-desc">Tab bars, headers, menus</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Common Screens</h2>
+                <div class="ref-grid">
+                    <div class="ref-item">
+                        <div class="ref-img">Home Screen</div>
+                        <div class="ref-info">
+                            <div class="ref-title">Home Dashboard</div>
+                            <div class="ref-desc">Main app interface with job listings</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item">
+                        <div class="ref-img">Profile Page</div>
+                        <div class="ref-info">
+                            <div class="ref-title">User Profile</div>
+                            <div class="ref-desc">User information and settings</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item">
+                        <div class="ref-img">Job Details</div>
+                        <div class="ref-info">
+                            <div class="ref-title">Job Details</div>
+                            <div class="ref-desc">Detailed view of individual gig opportunities</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ref-item">
+                        <div class="ref-img">Messages</div>
+                        <div class="ref-info">
+                            <div class="ref-title">Messaging Interface</div>
+                            <div class="ref-desc">Communication with employers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Icon System</h2>
+                <p>PocketGig uses a consistent icon system throughout the app to enhance usability and visual communication. Icons should be simple, recognizable, and align with our overall design language.</p>
+                <p>The complete icon library is available in the design assets package. Always use the provided icons to maintain consistency.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Photography Style</h2>
+                <p>When using photography in the app or marketing materials, images should reflect diversity, professionalism, and authenticity. Photos should be well-lit, clear, and show people in realistic work environments.</p>
+                <p>Avoid overly staged or artificial-looking stock photos. Images should reinforce our brand values of accessibility and empowerment.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Update active link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show target page
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                        if (page.id === targetPage) {
+                            page.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Function to show a specific page (for quick links)
+        function showPage(pageId) {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            // Update active link
+            navLinks.forEach(l => {
+                if (l.getAttribute('data-page') === pageId) {
+                    l.classList.add('active');
+                } else {
+                    l.classList.remove('active');
+                }
+            });
+            
+            // Show target page
+            pages.forEach(page => {
+                page.classList.remove('active');
+                if (page.id === pageId) {
+                    page.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
