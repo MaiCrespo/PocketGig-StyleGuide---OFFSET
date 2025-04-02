@@ -93,7 +93,7 @@ main {
     padding: 2rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     min-height: 80vh;
-    display: none;
+    /* display: none; */
 }
 
 .page.active {
