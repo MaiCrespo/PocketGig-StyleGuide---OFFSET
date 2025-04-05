@@ -378,3 +378,7 @@ p {
   .section.purpose-of-guide {
     margin-left: 55.19px;
   }
+
+  .members {
+    font-weight: bold;
+  }
