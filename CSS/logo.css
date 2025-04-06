@@ -14,14 +14,6 @@ img {
   height: 400px;
 }
 
-.logo-section-image-container-icon-wordmark { 
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  margin: 0 auto;
-  width: 10px;
-  height: 20px;
-}
 
 .color-variations-section .logo-variations-images-container {
   display: grid;
