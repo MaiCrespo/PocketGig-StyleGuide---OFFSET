@@ -418,3 +418,13 @@ p {
 .accessibility-img {
   max-width: 1000px;
 }
+
+.color-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.typography-example:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
