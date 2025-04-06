@@ -109,6 +109,17 @@
         .page  {
             display: block;
         }
+        .graphics-main-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        .graphics-text-container{
+            flex:1;
+        }
+        .graphics-text-container{
+            padding:20px;
+        }
     </style>
 </head>
 <body>
@@ -133,12 +144,25 @@
         </nav>
     </header>
     <main class="page graphics">
-        <section class="section">
-            <h2>Graphics</H2>
-        </section>
-        <section class="gallery-graphics">
-            <img class="image" src="/IMG/erwin.png">
-        </section>
+        <div class="graphics-main-container">
+            <div class="graphics-header">
+                <h2>Graphics</H2>
+                </div>
+            <section class="gallery-graphics">
+                <img class="image" src="/IMG/graphicsimages.png">
+            </section>
+            <section class="section">
+                <div class="graphics-text-container">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                </div>
+                <div class="graphics-text-container">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                </div>
+                <div class="graphics-text-container">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                </div>
+            </section>
+        </div>
     </main>
     <footer class="graphics-footer">
     </footer>
